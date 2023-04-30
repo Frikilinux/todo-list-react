@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useContext} from 'react'
 import Task from './Task'
+import { TaskListConstext } from './TasksListContext'
 
-const TasksList = ({ tasksList }) => {
-  return tasksList.map(({ task, uuid }, i) => {
-    return <Task key={uuid} uuid={uuid}>{task}</Task>
+const TasksList = () => {
+  const { tasksList } = useContext(TaskListConstext)
+
+  return tasksList.map(({ task, id }) => {
+    // console.log(task, id, 'MAP')
+    return (
+      <Task key={id} id={id}>
+        {task}
+      </Task>
+    )
   })
 }
 

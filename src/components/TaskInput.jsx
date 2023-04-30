@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { uuid } from './utils'
+import { TaskListConstext } from './TasksListContext'
 
 const FormContainer = styled.form`
   display: flex;
@@ -31,7 +33,19 @@ const InputStyled = styled.input`
   width: 100%;
 `
 
-const Input = ({ handleSubmit }) => {
+const Input = () => {
+  const { saveTask } = useContext(TaskListConstext)
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const submitData = Object.fromEntries(new FormData(event.target))
+    if (!submitData.task) return
+
+    saveTask({ ...submitData, id: uuid() })
+
+    event.target.reset()
+  }
 
   return (
     <FormContainer onSubmit={handleSubmit}>
