@@ -6,8 +6,9 @@ import styled from 'styled-components'
 const TaskListStyled = styled.ul`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
-  width: 90%;
+  width: 95%;
   max-width: 600px;
   overflow-y: scroll;
   &::-webkit-scrollbar {
@@ -20,10 +21,10 @@ const TasksList = () => {
 
   return (
     <TaskListStyled>
-      {tasksList.map(({ task, id }) => {
+      {tasksList.map(({ task, id, checked }) => {
         // console.log(task, id, 'MAP')
         return (
-          <Task key={id} id={id}>
+          <Task key={id} id={id} checked={checked}>
             {task}
           </Task>
         )

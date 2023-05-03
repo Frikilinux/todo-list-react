@@ -2,30 +2,34 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { uuid } from './utils'
 import { TaskListConstext } from './TasksListContext'
+import { FiPlusCircle } from 'react-icons/fi'
 
 const FormContainer = styled.form`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 40px;
-  background-color: #939393;
-  border-radius: 10px;
-  padding-left: 15px;
+  color: #c2c5cd;
+  background-color: #3e4553;
+  border-radius: 20px;
+  padding: 0 5px 0 15px;
   width: 90%;
   max-width: 500px;
 `
 
 const ButtonStyled = styled.button`
-  height: 100%;
-  border-radius: 0 10px 10px 0;
-  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  color: #282828;
-  background-color: red;
+  color: #b1d199;
+  background-color: transparent;
   font-weight: bold;
 `
 
 const InputStyled = styled.input`
+  font-size: 1.2rem;
+  color: #c2c5cd;
   background-color: transparent;
   outline: none;
   border: none;
@@ -42,7 +46,7 @@ const Input = () => {
     const submitData = Object.fromEntries(new FormData(event.target))
     if (!submitData.task) return
 
-    saveTask({ ...submitData, id: uuid() })
+    saveTask({ ...submitData, id: uuid(), checked: false })
 
     event.target.reset()
   }
@@ -50,7 +54,9 @@ const Input = () => {
   return (
     <FormContainer onSubmit={handleSubmit}>
       <InputStyled placeholder='Cortar el pasto' name='task' />
-      <ButtonStyled>New task</ButtonStyled>
+      <ButtonStyled>
+        <FiPlusCircle size={'30px'} />
+      </ButtonStyled>
     </FormContainer>
   )
 }

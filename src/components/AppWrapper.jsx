@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const WrapperStyle = styled.main`
-  color: #dacdcd;
+  color: #c2c5cd;
   padding: 20px 0;
-  background-color: #282828;
+  background: #313642;
   display: flex;
   flex-direction: column;
   align-items: center;

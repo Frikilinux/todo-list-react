@@ -7,6 +7,7 @@ export const TaskListConstextProvider = ({children}) => {
     JSON.parse(localStorage.getItem('TaskListDB')) || []
   )
 
+
   useEffect(() => {
     localStorage.setItem('TaskListDB', JSON.stringify(tasksList))
   }, [tasksList])
@@ -23,8 +24,15 @@ export const TaskListConstextProvider = ({children}) => {
     setTasksList(newTaskList)
   }
 
+  const checkTask = (taskID) => {
+    const newTaskList = tasksList.map((task) => {
+      return task.id !== taskID ? task : {...task, checked: !task.checked}
+    })
+    setTasksList(newTaskList)
+  }
+
   return (
-    <TaskListConstext.Provider value={{ tasksList, saveTask, deleteTask }}>
+    <TaskListConstext.Provider value={{ tasksList, saveTask, deleteTask, checkTask }}>
       {children}
     </TaskListConstext.Provider>
   )
