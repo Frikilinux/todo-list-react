@@ -9,7 +9,7 @@ const WrapperStyle = styled.main`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  min-height: 100vh;
+  height: 100vh;
   min-width: 300px;
   h1 {
     text-align: center;
