@@ -1,18 +1,15 @@
 import React from 'react'
-import Input from './components/TaskInput'
-import AppWrapper from './components/AppWrapper'
-import TasksList from './components/TasksList'
-import { TaskListConstextProvider } from './components/TasksListContext'
+import Input from './components/TaskInput/TaskInput'
+import AppWrapper from './components/AppWrapper/AppWrapper'
+import TasksList from './components/TaskList/TasksList'
 
 const App = () => {
   return (
-    <TaskListConstextProvider>
-      <AppWrapper>
-        <h1>ToDo List Reactizada</h1>
-        <Input />
-        <TasksList />
-      </AppWrapper>
-    </TaskListConstextProvider>
+    <AppWrapper>
+      <h1>ToDo List Reactizada</h1>
+      <Input />
+      <TasksList />
+    </AppWrapper>
   )
 }
 
