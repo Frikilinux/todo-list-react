@@ -17,7 +17,7 @@ export const TaskStyled = styled(motion.li)`
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    width: calc(100% - 70px);
+    width: 85%;
     overflow: hidden;
     text-overflow: ellipsis;
   }

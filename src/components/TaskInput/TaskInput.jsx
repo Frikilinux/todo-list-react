@@ -3,9 +3,11 @@ import { uuid } from '../utils'
 import { TaskListConstext } from '../Context/TasksListContext'
 import { FiPlusCircle } from 'react-icons/fi'
 import { ButtonStyled, FormContainer, InputStyled } from './StyledTaskInput'
+import Error from '../Error/Error'
 
 const Input = () => {
-  const { saveTask } = useContext(TaskListConstext)
+  const { tasksList, saveTask } = useContext(TaskListConstext)
+
   const [error, setError] = useState(false)
 
   const handleSubmit = (event) => {
@@ -13,26 +15,39 @@ const Input = () => {
 
     const submitData = Object.fromEntries(new FormData(event.target))
     if (!submitData.task) {
-      setError(true)
+      setError('Escribe una tarea!')
+      return
+    }
+
+    if (tasksList.find(({ task }) => task === submitData.task)) {
+      setError('Esa tarea ya existe!')
+      return
+    }
+
+    if (submitData.task.length > 60) {
+      setError('Máximo permitido 60 caracteres')
       return
     }
 
     saveTask({ ...submitData, id: uuid(), checked: false })
 
-    event.target.reset()
     setError(false)
+    event.target.reset()
   }
 
   return (
-    <FormContainer
-      style={{ border: error && '1px solid red' }}
-      onSubmit={handleSubmit}
-    >
-      <InputStyled placeholder='Cortar el pasto' name='task' />
-      <ButtonStyled>
-        <FiPlusCircle size={'30px'} />
-      </ButtonStyled>
-    </FormContainer>
+    <>
+      <FormContainer
+        style={{ border: error && '2px solid red' }}
+        onSubmit={handleSubmit}
+      >
+        <InputStyled placeholder='Añade una nueva tarea' name='task' />
+        <ButtonStyled>
+          <FiPlusCircle size={'30px'} />
+        </ButtonStyled>
+      </FormContainer>
+      {error && <Error>{error}</Error>}
+    </>
   )
 }
 

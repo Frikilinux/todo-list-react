@@ -6,7 +6,7 @@ export const TaskListStyled = styled.ul`
   align-items: center;
   gap: 15px;
   width: 95%;
-  max-width: 600px;
+  max-width: 800px;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;
