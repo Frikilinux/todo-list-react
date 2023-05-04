@@ -31,8 +31,10 @@ export const TaskListConstextProvider = ({children}) => {
     setTasksList(newTaskList)
   }
 
+  const deleteAllTasks = () => setTasksList([])
+
   return (
-    <TaskListConstext.Provider value={{ tasksList, saveTask, deleteTask, checkTask }}>
+    <TaskListConstext.Provider value={{ tasksList, saveTask, deleteTask, checkTask, deleteAllTasks }}>
       {children}
     </TaskListConstext.Provider>
   )

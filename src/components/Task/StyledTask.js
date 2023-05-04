@@ -1,5 +1,5 @@
-import { motion } from "framer-motion"
-import styled from "styled-components"
+import { motion } from 'framer-motion'
+import styled from 'styled-components'
 
 export const TaskStyled = styled(motion.li)`
   color: #c2c5cd;
@@ -30,4 +30,15 @@ export const ButtonsStyled = styled(motion.button)`
   cursor: pointer;
   color: ${({ color }) => `${color}`};
   font-size: 30px;
+`
+
+export const ButtonsStyledDelAll = styled(ButtonsStyled)`
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #ff7360;
+  border-radius: 50px;
+  font-size: 1rem;
+  gap: 10px;
+  color: red;
 `

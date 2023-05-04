@@ -1,14 +1,19 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { uuid } from '../utils'
 import { TaskListConstext } from '../Context/TasksListContext'
 import { FiPlusCircle } from 'react-icons/fi'
 import { ButtonStyled, FormContainer, InputStyled } from './StyledTaskInput'
 import Error from '../Error/Error'
+import { AnimatePresence } from 'framer-motion'
 
 const Input = () => {
   const { tasksList, saveTask } = useContext(TaskListConstext)
 
   const [error, setError] = useState(false)
+
+  useEffect(() => {
+    setError(false)
+  }, [tasksList])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -46,7 +51,9 @@ const Input = () => {
           <FiPlusCircle size={'30px'} />
         </ButtonStyled>
       </FormContainer>
-      {error && <Error>{error}</Error>}
+      <AnimatePresence mode={'popLayout'}>
+        {error && <Error>{error}</Error>}
+      </AnimatePresence>
     </>
   )
 }
