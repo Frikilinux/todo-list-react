@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import BaseStyles from './styles/BaseStyle.jsx'
 import { TaskListConstextProvider } from './components/Context/TasksListContext.jsx'
+import { Provider } from 'react-redux'
+import { store } from './redux/store.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <TaskListConstextProvider>
-      <App />
-      <BaseStyles />
-    </TaskListConstextProvider>
+    <Provider store={store}>
+      <TaskListConstextProvider>
+        <App />
+        <BaseStyles />
+      </TaskListConstextProvider>
+    </Provider>
   </React.StrictMode>
 )
