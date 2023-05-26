@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import SearchInput from '../UI/Input/SearchInput'
+import { MainStyled } from '../Layout/StyledLayout'
 
 const StyledPokeLogo = styled.div`
   display: flex;
@@ -8,9 +10,13 @@ const StyledPokeLogo = styled.div`
 
 const PokeApi = () => {
   return (
-    <StyledPokeLogo>
-      <img src='../src/assets/pokemon_logo.svg' alt='Log de Pokémon' />
-    </StyledPokeLogo>
+    <MainStyled>
+      {' '}
+      <StyledPokeLogo>
+        <img src='../src/assets/pokemon_logo.svg' alt='Log de Pokémon' />
+      </StyledPokeLogo>
+      <SearchInput />
+    </MainStyled>
   )
 }
 

@@ -15,7 +15,7 @@ export const MainStyled = styled.main`
   align-items: center;
   gap: 10px;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 70px);
   h1 {
     text-align: center;
   }
