@@ -10,20 +10,25 @@ import {
 } from './SearchIputSyled'
 
 const SearchInput = () => {
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(true)
 
   return (
-    <SearchForm>
-      <InputContainer error={true}>
-        <InputText placeholder='Añade una nueva tarea' name='task' />
-        <SubmitButton>
-          <FiPlusCircle size={'30px'} />
-        </SubmitButton>
-      </InputContainer>
-      <AnimatePresence>
-        <Error>Esto es un error!</Error>
-      </AnimatePresence>
-    </SearchForm>
+    <>
+      <SearchForm >
+        <InputContainer isError={error}>
+          <InputText placeholder='Añade una nueva tarea' name='task' />
+          <SubmitButton>
+            <FiPlusCircle size={'30px'} />
+          </SubmitButton>
+        </InputContainer>
+        <AnimatePresence>
+          {error && <Error>Esto es un error!</Error>}
+        </AnimatePresence>
+      </SearchForm>
+      <SubmitButton onClick={() => setError(!error)}>
+        <FiPlusCircle size={'30px'} />
+      </SubmitButton>
+    </>
   )
 }
 

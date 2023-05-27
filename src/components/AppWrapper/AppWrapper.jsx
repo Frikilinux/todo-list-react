@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const WrapperStyle = styled.main`
   color: #c2c5cd;
   padding: 20px 0;
-  background: #313642;
+  background: var(--bg);
   display: flex;
   flex-direction: column;
   align-items: center;

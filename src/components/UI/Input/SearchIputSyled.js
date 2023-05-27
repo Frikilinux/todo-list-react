@@ -1,11 +1,12 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const SearchForm = styled.form`
-display: flex;
-flex-direction: column;
-place-items: center;
-width: 90%;
-max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  width: 90%;
+  max-width: 700px;
+  height: 78px;
 `
 
 export const InputContainer = styled.div`
@@ -17,12 +18,11 @@ export const InputContainer = styled.div`
   background-color: #3e4553;
   border-radius: 20px;
   padding: 0 5px 0 15px;
-
-  border: ${({error}) => error ? '2px solid red' : 'none'};
+  border: ${({ isError }) => `2px dashed ${isError ? 'var(--error)' : 'transparent'}`};
   width: 100%;
 `
 
-export const SubmitButton= styled.button`
+export const SubmitButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

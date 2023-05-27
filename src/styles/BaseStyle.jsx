@@ -12,7 +12,12 @@ const BaseStyles = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
   }
   :root {
-    --primary: #4747ff;
-  }
+    --bg: #171717;
+    --fg: #EDEDED;
+    --bg2: #444444;
+    --blue: #4747ff;
+    --error: #d81344;
+    --success: #47A992;
+    }
 `
 export default BaseStyles
