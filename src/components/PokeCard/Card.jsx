@@ -10,13 +10,14 @@ import {
   StatsContainer,
 } from './CardStyled'
 import { StatsIcons } from '../../data/statsIcons'
-import { GiEdgedShield, GiFist, GiPointySword, GiStrong } from 'react-icons/gi'
+import { GiEdgedShield, GiFist, GiPointySword } from 'react-icons/gi'
 
 const Card = ({ data }) => {
-  console.log(data)
+  // console.log(data)
 
   // console.log({StatsIcons.hp});
-
+  const Dinamicicon = StatsIcons[pokemonData.stats[0].stat.name]
+  console.log(Dinamicicon);
   return (
     <CardContainer>
       <ImgContainer>
@@ -27,7 +28,7 @@ const Card = ({ data }) => {
         <PokeTitle>{pokemonData.name}</PokeTitle>
         <StatsContainer>
           <Stat >
-            <div><GiStrong/></div>
+            <div><Dinamicicon size={30}/></div>
             <div>{pokemonData.stats[0].base_stat}</div>
           </Stat>
           <Stat >
