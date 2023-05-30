@@ -9,7 +9,7 @@ const TasksList = () => {
 
   return (
     <TaskListStyled>
-      <AnimatePresence mode={'popLayout'}>
+      <AnimatePresence>
         {tasksList.map(({ task, id, checked }) => {
           return (
             <Task key={id} id={id} checked={checked}>

@@ -1,8 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit"
-import pokemonReducer from "./pokemonSlice"
+import { configureStore } from '@reduxjs/toolkit'
+import pokeReducer from './pokemonSlice'
+import todoReducer from './todoSlice'
 
 export const store = configureStore({
   reducer: {
-    pokemon: pokemonReducer,
+    pokemon: pokeReducer,
+    todo: todoReducer,
   },
 })

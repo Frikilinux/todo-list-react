@@ -51,9 +51,7 @@ const Input = () => {
           <FiPlusCircle size={'30px'} />
         </ButtonStyled>
       </FormContainer>
-      <AnimatePresence mode={'popLayout'}>
-        {error && <Error>{error}</Error>}
-      </AnimatePresence>
+      <AnimatePresence>{error && <Error>{error}</Error>}</AnimatePresence>
     </>
   )
 }
