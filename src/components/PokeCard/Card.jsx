@@ -6,6 +6,7 @@ import {
   PokeImg,
   PokeTitle,
   Stat,
+  StatBar,
   StatsContainer,
 } from './CardStyled'
 import { StatsIcons } from '../../data/statsIcons'
@@ -34,6 +35,7 @@ const Card = () => {
                   <Icon size={40} />
                 </div>
                 <div>{base_stat}%</div>
+                <StatBar heigth={base_stat} />
               </Stat>
             )
           })}
