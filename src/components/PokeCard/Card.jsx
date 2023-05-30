@@ -1,5 +1,4 @@
 import React from 'react'
-import pokemonData from '../../data/pokemonData.json'
 import {
   CardContainer,
   DataContainer,
@@ -10,47 +9,34 @@ import {
   StatsContainer,
 } from './CardStyled'
 import { StatsIcons } from '../../data/statsIcons'
-import { GiEdgedShield, GiFist, GiPointySword } from 'react-icons/gi'
+import { useSelector } from 'react-redux'
 
-const Card = ({ data }) => {
-  // console.log(data)
+const Card = () => {
+  const { data } = useSelector((state) => state.pokemon)
 
-  // console.log({StatsIcons.hp});
-  const Dinamicicon = StatsIcons[pokemonData.stats[0].stat.name]
-  console.log(Dinamicicon);
   return (
     <CardContainer>
       <ImgContainer>
-        <PokeImg src={data.sprites.other.home.front_default} alt={data.name} />
+        <PokeImg
+          src={data?.sprites.other.home.front_default}
+          alt={data?.name}
+        />
       </ImgContainer>
 
       <DataContainer>
-        <PokeTitle>{pokemonData.name}</PokeTitle>
+        <PokeTitle>{data?.name}</PokeTitle>
         <StatsContainer>
-          <Stat >
-            <div><Dinamicicon size={30}/></div>
-            <div>{pokemonData.stats[0].base_stat}</div>
-          </Stat>
-          <Stat >
-            <div><GiFist/></div>
-            <div>{pokemonData.stats[1].base_stat}</div>
-          </Stat>
-          <Stat >
-            <div><GiEdgedShield/></div>
-            <div>{pokemonData.stats[2].base_stat}</div>
-          </Stat>
-          <Stat >
-            <div><GiPointySword/></div>
-            <div>{pokemonData.stats[3].base_stat}</div>
-          </Stat>
-          <Stat >
-            <div>{pokemonData.stats[4].stat.name}</div>
-            <div>{pokemonData.stats[4].base_stat}</div>
-          </Stat>
-          <Stat >
-            <div>{pokemonData.stats[5].stat.name}</div>
-            <div>{pokemonData.stats[5].base_stat}</div>
-          </Stat>
+          {data?.stats.map(({ base_stat, stat: { name } }) => {
+            const Icon = StatsIcons[name]
+            return (
+              <Stat key={name}>
+                <div>
+                  <Icon size={40} />
+                </div>
+                <div>{base_stat}%</div>
+              </Stat>
+            )
+          })}
         </StatsContainer>
       </DataContainer>
     </CardContainer>

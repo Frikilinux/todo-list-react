@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
+import intialPokemon from '../data/pokemonData.json'
 
 const initialState = {
-  data: null,
+  data: intialPokemon,
   isLoading: false,
   error: false,
 }
@@ -10,7 +11,7 @@ export const pokemonSlice = createSlice({
   name: 'pokemon',
   initialState,
   reducers: {
-    isFecthing: (state) => {
+    isFetching: (state) => {
       return {
         ...state,
         isLoading: true,
@@ -38,6 +39,6 @@ export const pokemonSlice = createSlice({
 
 })
 
-export const {isFecthing, success, isError} = pokemonSlice.actions
+export const {isFetching, success, isError} = pokemonSlice.actions
 
 export default pokemonSlice.reducer

@@ -8,6 +8,7 @@ export const CardContainer = styled.div`
   place-items: center;
 `
 export const ImgContainer = styled.div`
+  width: 300px;
   height: 300px;
   background-color: var(--blue);
   border-radius: 10px 0 0 10px;
@@ -42,14 +43,22 @@ export const StatsContainer = styled.div`
 `
 
 export const Stat = styled.div`
+  font-family: 'Courier New', Courier, monospace;
   padding: 10px;
   text-transform: uppercase;
-  font-size: 1rem;
-  color: var(--bg);
+  font-size: 1.5rem;
+  color: var(--fg);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: aqua;
+  background-color: var(--bg);
   height: 100px;
+  width: 100%;
+  & div {
+    display: flex;
+    place-content: center;
+    width: 100%;
+    /* border: 1px solid var(--fg); */
+  }
 `
