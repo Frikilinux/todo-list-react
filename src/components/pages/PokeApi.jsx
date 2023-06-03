@@ -18,20 +18,23 @@ const PokeApi = () => {
 
   const handlerSubmit = (e, input) => {
     e.preventDefault()
-    if (!input) return dispatch(isError('Ingresa un ID o nombre de Pokémon válido'))
+    
+    if (!input) return dispatch(isError('Ingresa un ID o nombre de Pokémon'))
 
     dispatch(fetchPokemon(e, input))
+    e.target.reset()
   }
-  
+
   return (
     <MainStyled>
       <StyledPokeLogo>
         <img src='../src/assets/pokemon_logo.svg' alt='Log de Pokémon' />
       </StyledPokeLogo>
-      <SearchInput placeholder={'Nombre o ID del Pokémon'} handlerSubmit={handlerSubmit}/>
-      {
-        data && <Card {...data} />
-      }
+      <SearchInput
+        placeholder={'Nombre o ID del Pokémon'}
+        handlerSubmit={handlerSubmit}
+      />
+      {data && <Card {...data} />}
     </MainStyled>
   )
 }

@@ -11,15 +11,15 @@ import {
 } from './CardStyled'
 import { StatsIcons } from '../../data/statsIcons'
 
-const Card = (props) => {
-  const { stats, name, sprites } = props
+const Card = (data) => {
+  const { stats, name, sprites } = data
 
   return (
     <CardContainer>
       <ImgContainer>
         <PokeImg
           src={sprites?.other.home.front_default}
-          alt={name}
+          alt={`Imagen del Pokémon ${name}`}
         />
       </ImgContainer>
 

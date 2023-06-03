@@ -8,11 +8,10 @@ import {
   SearchForm,
   SubmitButton,
 } from './SearchIputSyled'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchPokemon } from '../../../helpers/getPokemon'
+import { useSelector } from 'react-redux'
 
 const SearchInput = ({ placeholder, handlerSubmit }) => {
-  // const [error, setError] = useState(true)
+
   const [input, setInput] = useState('')
 
   const { error } = useSelector((state) => state.pokemon)
