@@ -27,12 +27,12 @@ export const pokemonSlice = createSlice({
         error: false,
       }
     },
-    isError: (state) => {
+    isError: (state, action) => {
       return {
         ...state,
         data: null,
         isLoading: false,
-        error: 'Pokémon no encontrado',
+        error: action.payload ?? 'Pokémon no encontrado',
       }
     },
   },

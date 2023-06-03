@@ -10,32 +10,31 @@ import {
   StatsContainer,
 } from './CardStyled'
 import { StatsIcons } from '../../data/statsIcons'
-import { useSelector } from 'react-redux'
 
-const Card = () => {
-  const { data } = useSelector((state) => state.pokemon)
+const Card = (props) => {
+  const { stats, name, sprites } = props
 
   return (
     <CardContainer>
       <ImgContainer>
         <PokeImg
-          src={data?.sprites.other.home.front_default}
-          alt={data?.name}
+          src={sprites?.other.home.front_default}
+          alt={name}
         />
       </ImgContainer>
 
       <DataContainer>
-        <PokeTitle>{data?.name}</PokeTitle>
+        <PokeTitle>{name}</PokeTitle>
         <StatsContainer>
-          {data?.stats.map(({ base_stat, stat: { name } }) => {
+          {stats?.map(({ base_stat: baseStat, stat: { name } }) => {
             const Icon = StatsIcons[name]
             return (
               <Stat key={name}>
                 <div>
                   <Icon size={40} />
                 </div>
-                <div>{base_stat}%</div>
-                <StatBar heigth={base_stat} />
+                <div>{baseStat}%</div>
+                <StatBar heigth={baseStat} />
               </Stat>
             )
           })}

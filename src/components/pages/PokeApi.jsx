@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import SearchInput from '../UI/Input/SearchInput'
 import { MainStyled } from '../Layout/StyledLayout'
 import Card from '../PokeCard/Card'
-import pokemonData from '../../data/pokemonData.json'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchPokemon } from '../../helpers/getPokemon'
+import { isError } from '../../redux/pokemonSlice'
 
 const StyledPokeLogo = styled.div`
   display: flex;
@@ -11,13 +13,25 @@ const StyledPokeLogo = styled.div`
 `
 
 const PokeApi = () => {
+  const { data } = useSelector((state) => state.pokemon)
+  const dispatch = useDispatch()
+
+  const handlerSubmit = (e, input) => {
+    e.preventDefault()
+    if (!input) return dispatch(isError('Ingresa un ID o nombre de Pokémon válido'))
+
+    dispatch(fetchPokemon(e, input))
+  }
+  
   return (
     <MainStyled>
       <StyledPokeLogo>
         <img src='../src/assets/pokemon_logo.svg' alt='Log de Pokémon' />
       </StyledPokeLogo>
-      <SearchInput />
-      <Card data={pokemonData}/>
+      <SearchInput placeholder={'Nombre o ID del Pokémon'} handlerSubmit={handlerSubmit}/>
+      {
+        data && <Card {...data} />
+      }
     </MainStyled>
   )
 }
