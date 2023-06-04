@@ -12,7 +12,7 @@ export const todoSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     newTask: (state, action) => {
-      return { ...state, tasks: [...state.tasks, action.payload] }
+      return { ...state, tasks: [...state.tasks, action.payload], error: null }
     },
     checkTask: (state, action) => {
       return {
@@ -36,7 +36,7 @@ export const todoSlice = createSlice({
         tasks: [],
       }
     },
-    isError: (state, action) => {
+    isError2: (state, action) => {
       return {
         ...state,
         error: action.payload ?? 'Error desconocido por la actual civilización',
@@ -45,7 +45,7 @@ export const todoSlice = createSlice({
   },
 })
 
-export const { newTask, isError, checkTask, deleteTask, deleteAll } =
+export const { newTask, isError2, checkTask, deleteTask, deleteAll } =
   todoSlice.actions
 
 export default todoSlice.reducer

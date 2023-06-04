@@ -15,11 +15,10 @@ const SearchInput = ({ placeholder, handlerSubmit, error }) => {
 
   return (
     <SearchForm onSubmit={(e) => handlerSubmit(e, input)}>
-      <InputContainer {...error}>
+      <InputContainer error={error}>
         <InputText
           onChange={(e) => setInput(e.target.value)}
           placeholder={placeholder}
-          name='task'
         />
         <SubmitButton>
           <FiPlusCircle size={'30px'} />

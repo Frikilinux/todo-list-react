@@ -4,7 +4,7 @@ import intialPokemon from '../data/pokemonData.json'
 const initialState = {
   data: intialPokemon,
   isLoading: false,
-  error: false,
+  error: null,
 }
 
 export const pokemonSlice = createSlice({
@@ -15,7 +15,7 @@ export const pokemonSlice = createSlice({
       return {
         ...state,
         isLoading: true,
-        error: false,
+        error: null,
         data: null,
       }
     },
@@ -24,7 +24,7 @@ export const pokemonSlice = createSlice({
         ...state,
         data: action.payload,
         isLoading: false,
-        error: false,
+        error: null,
       }
     },
     isError: (state, action) => {
@@ -32,7 +32,7 @@ export const pokemonSlice = createSlice({
         ...state,
         data: null,
         isLoading: false,
-        error: action.payload ?? 'Pokémon no encontrado',
+        error: action.payload??'Pokémon no encontrado',
       }
     },
   },
