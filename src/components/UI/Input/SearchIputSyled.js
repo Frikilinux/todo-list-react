@@ -18,7 +18,8 @@ export const InputContainer = styled.div`
   background-color: #3e4553;
   border-radius: 20px;
   padding: 0 5px 0 15px;
-  border: ${({ isError }) => `2px dashed ${isError ? 'var(--error)' : 'transparent'}`};
+  border: ${({ error }) =>
+    `2px dashed ${error ? 'var(--error)' : 'transparent'}`};
   width: 100%;
 `
 

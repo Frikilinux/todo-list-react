@@ -2,17 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import BaseStyles from './styles/BaseStyle.jsx'
-import { TaskListConstextProvider } from './components/Context/TasksListContext.jsx'
 import { Provider } from 'react-redux'
-import { store } from './redux/store.js'
+import { persistor, store } from './redux/store.js'
+import { PersistGate } from 'redux-persist/integration/react'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <TaskListConstextProvider>
+      <PersistGate persistor={persistor}>
         <App />
         <BaseStyles />
-      </TaskListConstextProvider>
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 )

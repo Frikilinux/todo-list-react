@@ -8,17 +8,14 @@ import {
   SearchForm,
   SubmitButton,
 } from './SearchIputSyled'
-import { useSelector } from 'react-redux'
 
-const SearchInput = ({ placeholder, handlerSubmit }) => {
+const SearchInput = ({ placeholder, handlerSubmit, error }) => {
 
   const [input, setInput] = useState('')
 
-  const { error } = useSelector((state) => state.pokemon)
-
   return (
     <SearchForm onSubmit={(e) => handlerSubmit(e, input)}>
-      <InputContainer isError={error}>
+      <InputContainer {...error}>
         <InputText
           onChange={(e) => setInput(e.target.value)}
           placeholder={placeholder}

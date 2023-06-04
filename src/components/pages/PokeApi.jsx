@@ -13,13 +13,16 @@ const StyledPokeLogo = styled.div`
 `
 
 const PokeApi = () => {
-  const { data } = useSelector((state) => state.pokemon)
+  const { data, error } = useSelector((state) => state.pokemon)
   const dispatch = useDispatch()
 
   const handlerSubmit = (e, input) => {
     e.preventDefault()
-    
-    if (!input) return dispatch(isError('Ingresa un ID o nombre de Pokémon'))
+
+    if (!input) {
+      dispatch(isError('Ingresa un ID o nombre de Pokémon'))
+      return
+    }
 
     dispatch(fetchPokemon(e, input))
     e.target.reset()
@@ -33,6 +36,7 @@ const PokeApi = () => {
       <SearchInput
         placeholder={'Nombre o ID del Pokémon'}
         handlerSubmit={handlerSubmit}
+        error={error}
       />
       {data && <Card {...data} />}
     </MainStyled>

@@ -1,16 +1,16 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Task from '../Task/Task'
-import { TaskListConstext } from '../Context/TasksListContext'
 import { TaskListStyled } from './StyledTaskList'
 import { AnimatePresence } from 'framer-motion'
+import { useSelector } from 'react-redux'
 
 const TasksList = () => {
-  const { tasksList } = useContext(TaskListConstext)
+  const {tasks} = useSelector((state) => state.todo)
 
   return (
     <TaskListStyled>
       <AnimatePresence>
-        {tasksList.map(({ task, id, checked }) => {
+        {tasks.map(({ task, id, checked }) => {
           return (
             <Task key={id} id={id} checked={checked}>
               {task}
