@@ -6,6 +6,7 @@ import Card from '../PokeCard/Card'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPokemon } from '../../helpers/getPokemon'
 import { isError } from '../../redux/pokemonSlice'
+import pokeLogo from '../../assets/pokemon_logo.svg'
 
 const StyledPokeLogo = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ const PokeApi = () => {
   return (
     <MainStyled>
       <StyledPokeLogo>
-        <img src='../src/assets/pokemon_logo.svg' alt='Log de Pokémon' />
+        <img src={pokeLogo} alt='Log de Pokémon' />
       </StyledPokeLogo>
       <SearchInput
         placeholder={'Nombre o ID del Pokémon'}

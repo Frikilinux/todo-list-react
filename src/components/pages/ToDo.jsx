@@ -26,10 +26,8 @@ const ToDo = () => {
 
   return (
     <MainStyled>
-      {' '}
       <h1>ToDo List Reactizada</h1>
       <SearchInput placeholder={'Nueva tarea'} handlerSubmit={handlerSubmit} error={error} />
-      {/* <Input /> */}
       <TasksList />
       {tasks.length ? (
         <ButtonsStyledDelAll
