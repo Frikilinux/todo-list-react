@@ -1,0 +1,7 @@
+{
+  "routes": [
+    { "src": "/", "dest": "/" },
+    { "src": "/todo", "dest": "/" },
+    { "src": "/pokeapi", "dest": "/" }
+  ]
+}
