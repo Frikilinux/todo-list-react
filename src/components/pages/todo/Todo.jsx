@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TasksList from '../../TaskList/TasksList'
 import { MainStyled } from '../../Layout/StyledLayout'
 import SearchInput from '../../UI/Input/SearchInput'
@@ -8,6 +8,7 @@ import {
   isError2,
   newTask,
   setFilter,
+  setStats,
 } from '../../../redux/todoSlice'
 import { uuid } from '../../utils'
 import { ButtonsStyledDelAll } from '../../Task/StyledTask'
@@ -15,8 +16,17 @@ import { FiXCircle } from 'react-icons/fi'
 import { FilterBar, FilterButton } from './StyledTodo'
 
 const ToDo = () => {
-  const { tasks, error, filter } = useSelector((state) => state.todo)
+  const { tasks, error, filter, tasksStat } = useSelector((state) => state.todo)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(
+      setStats({
+        total: tasks.length,
+        done: tasks.filter((task) => task.checked).length,
+      })
+    )
+  }, [tasks, dispatch])
 
   const handlerSubmit = (e, input) => {
     e.preventDefault()
@@ -38,25 +48,28 @@ const ToDo = () => {
         handlerSubmit={handlerSubmit}
         error={error}
       />
+
       {tasks.length ? (
         <FilterBar>
           <FilterButton
             className={filter === 'all' ? 'active' : ''}
             onClick={() => dispatch(setFilter('all'))}
           >
-            Todas
+            Todas {tasksStat.total}
           </FilterButton>
           <FilterButton
+            disabled={tasksStat.total === tasksStat.done}
             className={filter === 'undone' ? 'active' : ''}
             onClick={() => dispatch(setFilter('undone'))}
           >
-            Sin Realizar
+            Sin Realizar {tasksStat.total - tasksStat.done}
           </FilterButton>
           <FilterButton
+            disabled={!tasksStat.done}
             className={filter === 'done' ? 'active' : ''}
             onClick={() => dispatch(setFilter('done'))}
           >
-            Realizadas
+            Realizadas {tasksStat.done}
           </FilterButton>
         </FilterBar>
       ) : null}

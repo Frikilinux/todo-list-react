@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   tasks: [],
   error: null,
   filter: 'all',
+  tasksStat: {}
 }
 
 export const todoSlice = createSlice({
@@ -53,6 +54,11 @@ export const todoSlice = createSlice({
         error: null,
       }
     },
+    setStats: (state, action) => {
+      return {
+        ...state, tasksStat: action.payload
+      }
+    }
   },
 })
 
@@ -63,6 +69,7 @@ export const {
   deleteTask,
   deleteAll,
   setFilter,
+  setStats
 } = todoSlice.actions
 
 export default todoSlice.reducer

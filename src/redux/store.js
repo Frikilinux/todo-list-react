@@ -2,16 +2,16 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import pokeReducer from './pokemonSlice'
 import todoReducer from './todoSlice'
 import {
-  persistReducer,
   FLUSH,
   PAUSE,
   PURGE,
   REGISTER,
   REHYDRATE,
-  persistStore,
   PERSIST,
+  persistReducer,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import persistStore from 'redux-persist/es/persistStore'
 
 const rootReducers = combineReducers({
   pokemon: pokeReducer,
@@ -41,10 +41,3 @@ export const store = configureStore({
 })
 
 export const persistor = persistStore(store)
-
-// export const store = configureStore({
-//   reducer: {
-//     pokemon: pokeReducer,
-//     todo: todoReducer,
-//   },
-// })

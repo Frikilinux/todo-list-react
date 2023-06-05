@@ -14,6 +14,9 @@ export const FilterButton = styled.button`
   background-color: transparent;
   border-radius: 30px;
   border: none;
+  &:hover {
+    cursor: pointer;
+  }
   &.active {
     font-weight: 500;
     background-color: orange;
