@@ -23,6 +23,7 @@ const SearchInput = ({ placeholder, handlerSubmit, error }) => {
         <InputText
           onChange={(e) => setInput(e.target.value)}
           placeholder={placeholder}
+          value={input}
         />
         <SubmitButton>
           <FiPlusCircle size={'30px'} />
