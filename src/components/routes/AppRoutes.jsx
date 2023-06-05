@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Routes as ReactRoutes } from 'react-router-dom'
 import Layout from '../Layout/Layout'
 import Home from '../pages/Home'
-import ToDo from '../pages/ToDo'
+import ToDo from '../pages/todo/Todo'
 import PokeApi from '../pages/PokeApi'
 import NotFound404 from '../pages/NotFound404'
 

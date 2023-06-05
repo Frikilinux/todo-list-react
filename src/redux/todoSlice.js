@@ -5,6 +5,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const INITIAL_STATE = {
   tasks: [],
   error: null,
+  filter: 'all'
 }
 
 export const todoSlice = createSlice({
@@ -42,10 +43,15 @@ export const todoSlice = createSlice({
         error: action.payload ?? 'Error desconocido por la actual civilización',
       }
     },
+    setFilter: (state, action) => {
+      return {
+        ...state, filter: action.payload
+      }
+    },
   },
 })
 
-export const { newTask, isError2, checkTask, deleteTask, deleteAll } =
+export const { newTask, isError2, checkTask, deleteTask, deleteAll, setFilter } =
   todoSlice.actions
 
 export default todoSlice.reducer
