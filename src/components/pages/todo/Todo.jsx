@@ -31,13 +31,21 @@ const ToDo = () => {
   const handlerSubmit = (e, input) => {
     e.preventDefault()
 
-    if (!input) {
-      dispatch(isError2('Ingresa una nueva tarea, vagales'))
+    if (!input.trim()) {
+      dispatch(isError2('Ingresá una tarea ... vagales'))
+      return
+    }
+
+    if (
+      tasks.some(
+        (task) => task.task.toLowerCase() === input.trim().toLowerCase()
+      )
+    ) {
+      dispatch(isError2('La tarea ya existe, ingresá una distinta please'))
       return
     }
 
     dispatch(newTask({ task: input, id: uuid(), checked: false }))
-    e.target.reset()
   }
 
   return (

@@ -10,11 +10,15 @@ import {
 } from './SearchIputSyled'
 
 const SearchInput = ({ placeholder, handlerSubmit, error }) => {
-
   const [input, setInput] = useState('')
 
   return (
-    <SearchForm onSubmit={(e) => handlerSubmit(e, input)}>
+    <SearchForm
+      onSubmit={(e) => {
+        handlerSubmit(e, input)
+        setInput('')
+      }}
+    >
       <InputContainer error={error}>
         <InputText
           onChange={(e) => setInput(e.target.value)}

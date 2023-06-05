@@ -26,7 +26,6 @@ const PokeApi = () => {
     }
 
     dispatch(fetchPokemon(e, input))
-    e.target.reset()
   }
 
   return (
