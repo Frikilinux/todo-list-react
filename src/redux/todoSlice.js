@@ -5,7 +5,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const INITIAL_STATE = {
   tasks: [],
   error: null,
-  filter: 'all'
+  filter: 'all',
 }
 
 export const todoSlice = createSlice({
@@ -23,18 +23,21 @@ export const todoSlice = createSlice({
             ? { ...task, checked: !task.checked }
             : task
         ),
+        error: null,
       }
     },
     deleteTask: (state, action) => {
       return {
         ...state,
         tasks: state.tasks.filter((task) => task.id !== action.payload),
+        error: null,
       }
     },
     deleteAll: (state) => {
       return {
         ...state,
         tasks: [],
+        error: null,
       }
     },
     isError2: (state, action) => {
@@ -45,13 +48,21 @@ export const todoSlice = createSlice({
     },
     setFilter: (state, action) => {
       return {
-        ...state, filter: action.payload
+        ...state,
+        filter: action.payload,
+        error: null,
       }
     },
   },
 })
 
-export const { newTask, isError2, checkTask, deleteTask, deleteAll, setFilter } =
-  todoSlice.actions
+export const {
+  newTask,
+  isError2,
+  checkTask,
+  deleteTask,
+  deleteAll,
+  setFilter,
+} = todoSlice.actions
 
 export default todoSlice.reducer
