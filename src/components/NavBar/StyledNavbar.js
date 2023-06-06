@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { TbBrandReact } from 'react-icons/tb'
+import { motion } from 'framer-motion'
 
 export const StyledHeader = styled.header`
   z-index: 20;
@@ -29,17 +30,12 @@ export const StyledIcon = styled(TbBrandReact)`
   color: var(--blue);
 `
 
-export const StyledNav = styled.nav`
-  animation: translate 0.5s ease-in-out;
+export const StyledNav = styled(motion.nav)`
   @media (max-width: 576px) {
-    z-index: 1;
     display: flex;
     justify-content: center;
     width: 90%;
     position: absolute;
-    transform: translate(
-      ${({ menuOpen }) => `0%, ${menuOpen ? '150' : '-180'}%`}
-    );
   }
 `
 

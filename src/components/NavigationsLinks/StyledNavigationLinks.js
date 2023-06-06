@@ -19,6 +19,9 @@ export const StyledNavLink = styled(NavLink)`
     background-color: var(--blue);
     color: white;
   }
+  @media (max-width: 576px) {
+    font-size: 0.8rem;
+  }
 `
 
 export const TasksCount = styled(motion.div)`

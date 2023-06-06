@@ -8,6 +8,7 @@ import {
 } from './StyledNavbar'
 import NavigationLinks from '../NavigationsLinks/NavigationLinks'
 import { RxCross2, RxHamburgerMenu } from 'react-icons/rx'
+import { AnimatePresence } from 'framer-motion'
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -17,9 +18,15 @@ const NavBar = () => {
         <StyledIcon />
         <p>REACTIVE</p>
       </StyledLogo>
-      <StyledNav menuOpen={menuOpen}>
-        <NavigationLinks />
-      </StyledNav>
+      <AnimatePresence>
+        <StyledNav
+          menuOpen={menuOpen}
+
+        >
+          <NavigationLinks />
+        </StyledNav>
+      </AnimatePresence>
+
       <BurgerMenu onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <RxCross2 /> : <RxHamburgerMenu />}
       </BurgerMenu>
