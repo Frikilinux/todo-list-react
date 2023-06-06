@@ -8,7 +8,7 @@ export const LayoutStyled = styled.div`
 
 export const MainStyled = styled.main`
   color: var(--fg);
-  padding: 20px 0;
+  padding: 50px 0;
   background: var(--bg);
   display: flex;
   flex-direction: column;

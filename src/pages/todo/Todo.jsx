@@ -9,7 +9,7 @@ import {
   setStats,
 } from '../../redux/todoSlice'
 import { ButtonsStyledDelAll } from '../../components/Task/StyledTask'
-import { FiXCircle } from 'react-icons/fi'
+import { FiCheckCircle, FiCircle, FiXCircle } from 'react-icons/fi'
 import { FilterBar, FilterButton } from './StyledTodo'
 import TasksList from '../../components/TaskList/TasksList'
 import { MainStyled } from '../../components/Layout/StyledLayout'
@@ -70,14 +70,14 @@ const Todo = () => {
             className={filter === 'undone' ? 'active' : ''}
             onClick={() => dispatch(setFilter('undone'))}
           >
-            Sin Realizar <p>{tasksStat.total - tasksStat.done}</p>
+            <FiCircle /> <p>{tasksStat.total - tasksStat.done}</p>
           </FilterButton>
           <FilterButton
             disabled={!tasksStat.done}
             className={filter === 'done' ? 'active' : ''}
             onClick={() => dispatch(setFilter('done'))}
           >
-            Realizadas <p>{tasksStat.done}</p>
+            <FiCheckCircle /> <p>{tasksStat.done}</p>
           </FilterButton>
         </FilterBar>
       ) : null}

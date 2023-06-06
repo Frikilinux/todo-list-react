@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { TbBrandReact } from 'react-icons/tb'
 
 export const StyledHeader = styled.header`
+  z-index: 20;
+  position: relative;
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -27,4 +29,27 @@ export const StyledIcon = styled(TbBrandReact)`
   color: var(--blue);
 `
 
-export const StyledNav = styled.nav``
+export const StyledNav = styled.nav`
+  animation: translate 0.5s ease-in-out;
+  @media (max-width: 576px) {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    position: absolute;
+    transform: translate(
+      ${({ menuOpen }) => `0%, ${menuOpen ? '150' : '-180'}%`}
+    );
+  }
+`
+
+export const BurgerMenu = styled.button`
+font-size: 1.5rem;
+background-color: transparent;
+border: none;
+color: var(--fg);
+  display: none;
+  @media (max-width: 576px) {
+    display: flex;
+  }
+`

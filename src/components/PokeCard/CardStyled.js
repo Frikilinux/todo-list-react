@@ -48,7 +48,6 @@ export const PokeTitle = styled.div`
 export const StatsContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  /* background-color: cadetblue; */
   flex-wrap: wrap;
   width: 100%;
   @media (max-width: 576px) {
