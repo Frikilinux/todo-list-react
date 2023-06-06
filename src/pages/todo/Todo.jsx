@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
-import TasksList from '../../TaskList/TasksList'
-import { MainStyled } from '../../Layout/StyledLayout'
-import SearchInput from '../../UI/Input/SearchInput'
+import SearchInput from '../../components/UI/Input/SearchInput'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   deleteAll,
@@ -9,13 +7,15 @@ import {
   newTask,
   setFilter,
   setStats,
-} from '../../../redux/todoSlice'
-import { uuid } from '../../utils'
-import { ButtonsStyledDelAll } from '../../Task/StyledTask'
+} from '../../redux/todoSlice'
+import { ButtonsStyledDelAll } from '../../components/Task/StyledTask'
 import { FiXCircle } from 'react-icons/fi'
 import { FilterBar, FilterButton } from './StyledTodo'
+import TasksList from '../../components/TaskList/TasksList'
+import { MainStyled } from '../../components/Layout/StyledLayout'
+import uuid from '../../utils/uuid'
 
-const ToDo = () => {
+const Todo = () => {
   const { tasks, error, filter, tasksStat } = useSelector((state) => state.todo)
   const dispatch = useDispatch()
 
@@ -63,21 +63,21 @@ const ToDo = () => {
             className={filter === 'all' ? 'active' : ''}
             onClick={() => dispatch(setFilter('all'))}
           >
-            Todas {tasksStat.total}
+            Todas <p>{tasksStat.total}</p>
           </FilterButton>
           <FilterButton
             disabled={tasksStat.total === tasksStat.done}
             className={filter === 'undone' ? 'active' : ''}
             onClick={() => dispatch(setFilter('undone'))}
           >
-            Sin Realizar {tasksStat.total - tasksStat.done}
+            Sin Realizar <p>{tasksStat.total - tasksStat.done}</p>
           </FilterButton>
           <FilterButton
             disabled={!tasksStat.done}
             className={filter === 'done' ? 'active' : ''}
             onClick={() => dispatch(setFilter('done'))}
           >
-            Realizadas {tasksStat.done}
+            Realizadas <p>{tasksStat.done}</p>
           </FilterButton>
         </FilterBar>
       ) : null}
@@ -97,4 +97,4 @@ const ToDo = () => {
   )
 }
 
-export default ToDo
+export default Todo

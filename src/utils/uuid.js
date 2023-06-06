@@ -1,4 +1,4 @@
-export const uuid = () => {
+const uuid = () => {
   const hexDigits = 'abcdef0123456789'
   const uuid = Array(36).fill()
 
@@ -11,3 +11,4 @@ export const uuid = () => {
     .join('')
 }
 
+export default uuid

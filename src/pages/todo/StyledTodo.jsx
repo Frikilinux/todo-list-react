@@ -10,10 +10,17 @@ export const FilterBar = styled.div`
 `
 
 export const FilterButton = styled.button`
+display: flex;
+justify-content: space-between;
+align-items: center;
+  width: 115px;
   padding: 2px 10px;
   background-color: transparent;
   border-radius: 30px;
   border: none;
+  p {
+    font-weight: 600;
+  }
   &:hover {
     cursor: pointer;
   }

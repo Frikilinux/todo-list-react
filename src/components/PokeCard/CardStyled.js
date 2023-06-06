@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 
 export const CardContainer = styled.div`
-  width: 70%;
+  width: 80%;
   max-width: 900px;
+  min-width: 288px;
   background-color: var(--bg2);
   border-radius: 10px;
   display: flex;
-  /* justify-content: space-between; */
+  @media (max-width: 996px) {
+    flex-direction: column;
+  }
 `
 export const ImgContainer = styled.div`
   /* padding: 40px; */
@@ -14,6 +17,10 @@ export const ImgContainer = styled.div`
   place-content: center;
   background-color: var(--fg);
   border-radius: 10px 0 0 10px;
+  @media (max-width: 996px) {
+    flex-wrap: wrap;
+    border-radius: 10px 10px 0 0;
+  }
 `
 
 export const PokeImg = styled.img`
@@ -22,11 +29,11 @@ export const PokeImg = styled.img`
 `
 
 export const DataContainer = styled.div`
+padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
   justify-content: space-between;
+  width: 100%;
 `
 
 export const PokeTitle = styled.div`
@@ -40,13 +47,15 @@ export const PokeTitle = styled.div`
 
 export const StatsContainer = styled.div`
   display: flex;
-  justify-content: center;
-  background-color: cadetblue;
+  justify-content: space-evenly;
+  /* background-color: cadetblue; */
+  flex-wrap: wrap;
   width: 100%;
+  @media (max-width: 576px) {
+  }
 `
 
 export const Stat = styled.div`
-  border-top: 1px solid var(--bg);
   position: relative;
   font-family: 'Courier New', Courier, monospace;
   padding: 10px;
@@ -59,11 +68,14 @@ export const Stat = styled.div`
   justify-content: space-between;
   background-color: var(--bg2);
   height: 100px;
-  width: 100%;
+  max-width: 100px;
+  width: 80px;
   & div {
     display: flex;
     place-content: center;
     width: 90%;
+  }
+  @media(max-width: 996px) {
   }
 `
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { MainStyled } from '../Layout/StyledLayout'
+import { MainStyled } from '../components/Layout/StyledLayout'
 
 const Home = () => {
   return (

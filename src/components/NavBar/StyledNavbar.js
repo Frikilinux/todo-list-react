@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  background-color: var(--bg2);
+  background-color: var(--bg);
 `
 
 export const StyledLogo = styled.div`
@@ -17,13 +17,14 @@ export const StyledLogo = styled.div`
   & p {
     font-size: 1.5rem;
     font-weight: 800;
-    color: green;
+    color: var(--success);
   }
 `
 
 export const StyledIcon = styled(TbBrandReact)`
   height: 50px;
   width: auto;
+  color: var(--blue);
 `
 
 export const StyledNav = styled.nav``

@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import SearchInput from '../UI/Input/SearchInput'
-import { MainStyled } from '../Layout/StyledLayout'
-import Card from '../PokeCard/Card'
+import SearchInput from '../components/UI/Input/SearchInput'
+import { MainStyled } from '../components/Layout/StyledLayout'
+import Card from '../components/PokeCard/Card'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPokemon } from '../../helpers/getPokemon'
-import { isError } from '../../redux/pokemonSlice'
-import pokeLogo from '../../assets/pokemon_logo.svg'
+import { fetchPokemon } from '../helpers/getPokemon'
+import { isError } from '../redux/pokemonSlice'
+import pokeLogo from '../assets/pokemon_logo.svg'
 
 const StyledPokeLogo = styled.div`
   display: flex;
