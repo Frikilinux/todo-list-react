@@ -21,7 +21,6 @@ const NavBar = () => {
       <AnimatePresence>
         <StyledNav
           menuOpen={menuOpen}
-
         >
           <NavigationLinks />
         </StyledNav>

@@ -12,10 +12,10 @@ export const CardContainer = styled.div`
   }
 `
 export const ImgContainer = styled.div`
-  /* padding: 40px; */
+  background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
   display: flex;
   place-content: center;
-  background-color: var(--fg);
+  /* background-color: var(--fg); */
   border-radius: 10px 0 0 10px;
   @media (max-width: 996px) {
     flex-wrap: wrap;
@@ -29,7 +29,7 @@ export const PokeImg = styled.img`
 `
 
 export const DataContainer = styled.div`
-padding: 10px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -74,7 +74,7 @@ export const Stat = styled.div`
     place-content: center;
     width: 90%;
   }
-  @media(max-width: 996px) {
+  @media (max-width: 996px) {
   }
 `
 

@@ -89,7 +89,7 @@ const Todo = () => {
           style={{ color: '#313642' }}
           onClick={() => dispatch(deleteAll())}
         >
-          <FiXCircle size={'30px'} />
+          <FiXCircle size={'25px'} />
           Borrar todo
         </ButtonsStyledDelAll>
       ) : null}

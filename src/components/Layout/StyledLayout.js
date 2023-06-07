@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 export const LayoutStyled = styled.div`
-  min-height: 100vh;
+  /* min-height: 100vh; */
   height: auto;
   min-width: 300px;
-  `
+`
 
 export const MainStyled = styled.main`
   color: var(--fg);
+  /* top: 70px; */
   padding: 50px 0;
   background: var(--bg);
   display: flex;

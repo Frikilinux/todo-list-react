@@ -4,7 +4,7 @@ export const SearchForm = styled.form`
   display: flex;
   flex-direction: column;
   place-items: center;
-  width: 90%;
+  width: 80%;
   max-width: 700px;
   height: 78px;
 `

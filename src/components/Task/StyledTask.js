@@ -38,7 +38,7 @@ export const ButtonsStyledDelAll = styled(ButtonsStyled)`
   padding: 5px 10px;
   background-color: #ff7360;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.8rem;
   gap: 10px;
   color: red;
 `
