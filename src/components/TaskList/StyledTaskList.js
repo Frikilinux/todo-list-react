@@ -9,7 +9,6 @@ export const TaskListStyled = styled.ul`
   height: 100%;
   max-width: 800px;
   overflow-y: scroll;
-  border-radius: 60px;
   &::-webkit-scrollbar {
     display: none;
   }
