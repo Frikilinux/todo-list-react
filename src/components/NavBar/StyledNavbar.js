@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { TbBrandReact } from 'react-icons/tb'
-import { motion } from 'framer-motion'
 
 export const StyledHeader = styled.header`
   top: 0;
@@ -41,7 +40,7 @@ export const StyledNav = styled.nav`
     display: flex;
     justify-content: center;
     width: 90%;
-    top: 120%;
+    top: 125%;
     min-width: 288px
   }
 `

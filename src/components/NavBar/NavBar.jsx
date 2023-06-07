@@ -9,19 +9,21 @@ import {
 import NavigationLinks from '../NavigationsLinks/NavigationLinks'
 import { RxCross2, RxHamburgerMenu } from 'react-icons/rx'
 import { AnimatePresence } from 'framer-motion'
+import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   return (
     <StyledHeader>
-      <StyledLogo>
-        <StyledIcon />
-        <p>REACTIVE</p>
-      </StyledLogo>
+      <NavLink to={'/'}>
+        <StyledLogo>
+          <StyledIcon />
+          <p>REACTIVE</p>
+        </StyledLogo>
+      </NavLink>
+
       <AnimatePresence>
-        <StyledNav
-          menuOpen={menuOpen}
-        >
+        <StyledNav menuOpen={menuOpen}>
           <NavigationLinks />
         </StyledNav>
       </AnimatePresence>

@@ -1,5 +1,12 @@
 import { styled } from 'styled-components'
 
+export const TodoTitle = styled.h1`
+font-size: 2.5rem;
+font-weight: 400;
+  padding: 10px;
+  color: var(--fg);
+`
+
 export const FilterBar = styled.div`
   display: flex;
   flex-wrap: wrap;

@@ -10,7 +10,7 @@ import {
 } from '../../redux/todoSlice'
 import { ButtonsStyledDelAll } from '../../components/Task/StyledTask'
 import { FiCheckCircle, FiCircle, FiXCircle } from 'react-icons/fi'
-import { FilterBar, FilterButton } from './StyledTodo'
+import { FilterBar, FilterButton, TodoTitle } from './StyledTodo'
 import TasksList from '../../components/TaskList/TasksList'
 import { MainStyled } from '../../components/Layout/StyledLayout'
 import uuid from '../../utils/uuid'
@@ -50,7 +50,7 @@ const Todo = () => {
 
   return (
     <MainStyled>
-      <h1>ToDo List Reactizada</h1>
+      <TodoTitle>ToDo List Reactizada</TodoTitle>
       <SearchInput
         placeholder={'Nueva tarea'}
         handlerSubmit={handlerSubmit}
