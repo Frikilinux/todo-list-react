@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import SearchInput from '../../components/UI/Input/SearchInput'
 import { MainStyled } from '../../components/Layout/StyledLayout'
 import Card from '../../components/PokeCard/Card'
@@ -8,8 +7,6 @@ import { fetchPokemon } from '../../helpers/getPokemon'
 import { isError } from '../../redux/pokemonSlice'
 import pokeLogo from '../assets/pokemon_logo.svg'
 import { StyledPokeLogo } from './StyledPokeApi'
-
-
 
 const PokeApi = () => {
   const { data, error } = useSelector((state) => state.pokemon)
