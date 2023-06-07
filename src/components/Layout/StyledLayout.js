@@ -8,7 +8,6 @@ export const LayoutStyled = styled.div`
 
 export const MainStyled = styled.main`
   color: var(--fg);
-  /* top: 70px; */
   padding: 50px 0;
   background: var(--bg);
   display: flex;
@@ -16,7 +15,7 @@ export const MainStyled = styled.main`
   align-items: center;
   gap: 10px;
   width: 100%;
-  min-height: calc(100vh - 70px);
+  height: calc(100vh - 70px);
   h1 {
     text-align: center;
   }

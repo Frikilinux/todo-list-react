@@ -4,7 +4,6 @@ import { CardHome, CardHomeImg, CardHomeTitle, SectionHome } from './StyledHome'
 import pokeimg from '../../assets/pokes.png'
 import todoImg from '../../assets/todo.png'
 import { NavLink } from 'react-router-dom'
-import { StyledNavLink } from '../../components/NavigationsLinks/StyledNavigationLinks'
 
 const Home = () => {
   return (
